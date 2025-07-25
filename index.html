@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart PDF to Voice Reader</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="container">
+        <button class="theme-toggle" onclick="toggleTheme()">🌓 Toggle Theme</button>
+        <h2>📑 Smart PDF to Voice Reader</h2>
+
+        <input type="file" id="pdfInput" accept="application/pdf" />
+
+        <div class="controls">
+            <select id="voiceSelect"></select>
+            <input type="range" id="speedRange" min="0.5" max="2" step="0.1" value="1">
+            <span>Speed: <span id="speedValue">1</span>x</span>
+        </div>
+
+        <input type="text" id="searchInput" placeholder="Search text in paragraphs..." />
+
+        <div class="buttons">
+            <button onclick="readSelectedTextOrAll()">🔊 Read Text</button>
+            <button onclick="pauseSpeech()">⏸ Pause</button>
+            <button onclick="resumeSpeech()">▶ Resume</button>
+            <button onclick="stopSpeech()">⏹ Stop</button>
+        </div>
+
+        <p id="status">Upload a PDF to begin</p>
+        <div id="pdfViewer"></div>
+        <div id="textContainer" class="accessibility" style="margin-top:20px; line-height:1.5;"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
