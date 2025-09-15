@@ -1,30 +1,23 @@
-# Voice to Text (Browser)
+## Smart PDF Reader
 
-A simple browser-based voice to text converter built using the Web Speech API.  
+--> A simple web app to upload any PDF and listen to it using text-to-speech.
 
-## Features
-- Convert speech to text directly in the browser  
-- Supports multiple languages (English, Hindi, Telugu, Spanish, French, etc.)
-- Save transcript as .txt file  
-- Clear transcript option  
-- Responsive design, works on mobile and desktop
+-- Features:
 
-## How to Use
-1. Open the app in Chrome or Edge  
-2. Allow microphone access when prompted  
-3. Select your desired language from the dropdown  
-4. Click **Start** to begin speech recognition  
-5. Speak into your microphone and see text appear in real time  
-6. Click **Stop** to stop recognition  
-7. Use **Save** to download the transcript as a text file  
-8. Use **Clear** to reset the text area  
+1. Upload a PDF and extract text.
 
-- ## Tech Stack
-- HTML  
-- CSS  
-- JavaScript (Web Speech API)
+2. Read the whole text, current page, or selection.
 
-- ## Browser Support
-- Google Chrome (latest)  
-- Microsoft Edge (latest)  
-- Not supported in Firefox or Safari  
+3. Play, pause, resume, stop controls.
+
+4. Change voice, rate, and pitch.
+
+5. Works fully in the browser (no server needed).
+
+ -- How to Use : 
+
+--> Download or clone this repo.
+
+--> Open index.html in a browser.
+
+--> Upload a PDF and click Play to hear it.

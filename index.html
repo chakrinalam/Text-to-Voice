@@ -1,41 +1,70 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="light">
+<!doctype html>
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Smart PDF to Voice Reader</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Smart PDF Reader — PDF → Voice</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div class="container">
-        <button class="theme-toggle" onclick="toggleTheme()">🌓 Toggle Theme</button>
-        <h2>📑 Smart PDF to Voice Reader</h2>
+    <div class="wrap">
+        <header>
+            <h1>Smart PDF Reader</h1>
+        </header>
 
-        <input type="file" id="pdfInput" accept="application/pdf" />
+        <div class="card">
+            <div class="controls">
+                <div class="left">
+                    <label>Choose PDF file</label>
+                    <input id="file-input" type="file" accept="application/pdf">
+                    <p class="small">Drop or choose a PDF. The page preview and text extraction run in your browser (no
+                        upload).</p>
 
-        <div class="controls">
-            <select id="voiceSelect"></select>
-            <input type="range" id="speedRange" min="0.5" max="2" step="0.1" value="1">
-            <span>Speed: <span id="speedValue">1</span>x</span>
+                    <div style="margin-top:12px">
+                        <label>Preview</label>
+                        <div class="canvas-wrap" id="preview"></div>
+                    </div>
+                </div>
+
+                <div class="right">
+                    <label>Extracted text (editable)</label>
+                    <textarea id="extracted"
+                        placeholder="After you load a PDF the extracted text will appear here — you can edit it before reading."></textarea>
+
+                    <div style="margin-top:8px" class="row">
+                        <div style="flex:1">
+                            <label>Voice</label>
+                            <select id="voiceSelect" style="color: black; background-color: aliceblue;"></select>
+                        </div>
+                        <div style="width:120px">
+                            <label>Rate <span id="rateVal">1</span></label>
+                            <input id="rate" type="range" min="0.5" max="2" step="0.1" value="1">
+                        </div>
+                        <div style="width:120px">
+                            <label>Pitch <span id="pitchVal">1</span></label>
+                            <input id="pitch" type="range" min="0" max="2" step="0.1" value="1">
+                        </div>
+                    </div>
+
+                    <div style="margin-top:10px" class="btns">
+                        <button id="playBtn">Play</button>
+                        <button id="pauseBtn">Pause</button>
+                        <button id="resumeBtn">Resume</button>
+                        <button id="stopBtn">Stop</button>
+                        <button id="readSelBtn">Read Selection</button>
+                        <button id="readPageBtn">Read Current Page</button>
+                    </div>
+
+                    <p class="small" style="margin-top:8px">Tip: select a passage in the text area and click <em>Read
+                            Selection</em> to hear only that portion.</p>
+                </div>
+            </div>
         </div>
-
-        <input type="text" id="searchInput" placeholder="Search text in paragraphs..." />
-
-        <div class="buttons">
-            <button onclick="readSelectedTextOrAll()">🔊 Read Text</button>
-            <button onclick="pauseSpeech()">⏸ Pause</button>
-            <button onclick="resumeSpeech()">▶ Resume</button>
-            <button onclick="stopSpeech()">⏹ Stop</button>
-        </div>
-
-        <p id="status">Upload a PDF to begin</p>
-        <div id="pdfViewer"></div>
-        <div id="textContainer" class="accessibility" style="margin-top:20px; line-height:1.5;"></div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.9.179/pdf.min.js"></script>
     <script src="script.js"></script>
 </body>
 
